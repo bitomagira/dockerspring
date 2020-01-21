@@ -9,16 +9,16 @@ public class EmployeeService {
 	@Autowired
 	private Employeerepo myrepo;
 	
-	public List<employee> getAllEmployees(){
+	public List<Employee> getAllEmployees(){
 		return myrepo.findAll();
 	}
 
-	public employee saveemployee(employee employee) {
+	public Employee saveemployee(Employee employee) {
 		myrepo.save(employee);
 		return employee;
 	}
 	
-	public employee findEmployee(int id) {
+	public Employee findEmployee(int id) {
 		return myrepo.findById(id).get();
 	}
 }

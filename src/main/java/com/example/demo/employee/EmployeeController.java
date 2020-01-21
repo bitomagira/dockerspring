@@ -18,26 +18,27 @@ public class EmployeeController {
 	
 	@RequestMapping("/employees")
 	@CrossOrigin(origins = "http://localhost:3000")
-	public List<employee> getEmployee()
+	public List<Employee> getEmployee()
 	{
 		return myService.getAllEmployees();
 	}
 	@RequestMapping(method = RequestMethod.POST,value="/employees")
-	public employee createEmployee(@RequestBody employee employee) {
+	public Employee createEmployee(@RequestBody Employee employee) {
+		
 		return myService.saveemployee(employee);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/employees/{id}")
-	public employee getneEmployee(@PathVariable int id) {
+	public Employee getneEmployee(@PathVariable int id) {
 		return myService.findEmployee(id);		
 	}
 	
 	
 	@RequestMapping(method = RequestMethod.PATCH,value = "/employees/{id}")
-	public employee updateemployee(@PathVariable int id, @RequestBody Map<String,String> user) {
+	public Employee updateemployee(@PathVariable int id, @RequestBody Map<String,String> user) {
 		
-		employee employee = myService.findEmployee(id);
-		employee.setSurname(user.get("surname"));
+		Employee employee = myService.findEmployee(id);
+		//employee.setSurname(user.get("surname"));
 		myService.saveemployee(employee);
 		return employee;
 	}
