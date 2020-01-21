@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  myspringapp:
+    build: .
+    container_name: myspring1
+    ports:
+      - "8085:8080"
+    restart: always
+    depends_on:
+      - db1
+  db1:
+    image: "mysql"
+    container_name: db1
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_USER: steve
+      MYSQL_PASSWORD: junior
+      MYSQL_DATABASE: stevedb
