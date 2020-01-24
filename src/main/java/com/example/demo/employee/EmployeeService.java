@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeService {
 	@Autowired
-	private Employeerepo myrepo;
+	private EmployeeRepository myrepo;
 	
 	public List<Employee> getAllEmployees(){
 		return myrepo.findAll();
