@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TicketModel {
+public class Ticket {
     @Id
     private int id;
     private int amount;

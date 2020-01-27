@@ -1,5 +1,5 @@
 package com.example.demo.user;
-import com.example.demo.ticket.TicketModel;
+import com.example.demo.ticket.Ticket;
 import lombok.*;
 
 import javax.persistence.CascadeType;

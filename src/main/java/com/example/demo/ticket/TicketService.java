@@ -10,11 +10,11 @@ public class TicketService {
     @Autowired
     private TicketRepository myTicketrepo;
 
-    public List<TicketModel> getAllTickets(){
+    public List<Ticket> getAllTickets(){
         return myTicketrepo.findAll();
     }
 
-    public TicketModel createTicket(TicketModel ticket){
+    public Ticket createTicket(Ticket ticket){
 
         return myTicketrepo.save(ticket);
     }

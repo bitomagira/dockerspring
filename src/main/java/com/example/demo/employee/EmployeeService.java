@@ -13,7 +13,7 @@ public class EmployeeService {
 		return myrepo.findAll();
 	}
 
-	public Employee saveemployee(Employee employee) {
+	public Employee saveEmployee(Employee employee) {
 		myrepo.save(employee);
 		return employee;
 	}

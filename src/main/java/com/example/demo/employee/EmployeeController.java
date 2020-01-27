@@ -25,21 +25,21 @@ public class EmployeeController {
 	@RequestMapping(method = RequestMethod.POST,value="/employees")
 	public Employee createEmployee(@RequestBody Employee employee) {
 		
-		return myService.saveemployee(employee);
+		return myService.saveEmployee(employee);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/employees/{id}")
-	public Employee getneEmployee(@PathVariable int id) {
+	public Employee getEmployee(@PathVariable int id) {
 		return myService.findEmployee(id);		
 	}
 	
 	
 	@RequestMapping(method = RequestMethod.PATCH,value = "/employees/{id}")
-	public Employee updateemployee(@PathVariable int id, @RequestBody Map<String,String> user) {
+	public Employee updateEmployee(@PathVariable int id, @RequestBody Map<String,String> user) {
 		
 		Employee employee = myService.findEmployee(id);
 		//employee.setSurname(user.get("surname"));
-		myService.saveemployee(employee);
+		myService.saveEmployee(employee);
 		return employee;
 	}
 

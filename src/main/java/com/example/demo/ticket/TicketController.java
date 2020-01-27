@@ -17,12 +17,12 @@ public class TicketController {
     private TicketService myTicketService;
 
     @RequestMapping("")
-    public List<TicketModel> getAllTickets(){
+    public List<Ticket> getAllTickets(){
         return myTicketService.getAllTickets();
     }
 
     @RequestMapping(method = RequestMethod.POST,value = "", consumes ="application/json",produces = "application/json")
-    public TicketModel createTicket(@RequestBody TicketModel ticket){
+    public Ticket createTicket(@RequestBody Ticket ticket){
         return myTicketService.createTicket(ticket);
     }
 }

@@ -63,13 +63,13 @@ class TicketControllerTest {
     @Test
     void createTicket() throws Exception {
 
-        TicketModel ticket = new TicketModel(1,50,new User(2,"bitomagira","steve junior", "IT"
+        Ticket ticket = new Ticket(1,50,new User(2,"bitomagira","steve junior", "IT"
         ),new User(1,"","",""));
 
         System.out.println(ticket.toString());
 
         ObjectMapper obj= new ObjectMapper();
-        when(ticketService.createTicket(any(TicketModel.class))).thenReturn(ticket);
+        when(ticketService.createTicket(any(Ticket.class))).thenReturn(ticket);
 
 
         mockMvc.perform(post("/ticket")
