@@ -1,9 +1,10 @@
 package com.example.demo.user;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -11,25 +12,30 @@ public class UserController {
     @Autowired
     UserService myUserService;
 
-    @RequestMapping()
-    public List<UserModel> getAllUsers(){
+    @RequestMapping(method = RequestMethod.GET)
+    public List<User> getAllUsers() {
         return myUserService.getAllUsers();
     }
-    @RequestMapping(value = "",method = RequestMethod.POST)
-    public UserModel createUser(@RequestBody UserModel user){
+
+    @RequestMapping(method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE,  produces = MediaType.APPLICATION_JSON_VALUE)
+    public User createUser(@RequestBody User user) {
+
         return myUserService.postUser(user);
     }
-    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-    public UserModel updateUser(@RequestBody UserModel newUser){
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public User updateUser(@RequestBody User newUser) {
         return myUserService.putUser(newUser);
     }
+
     @RequestMapping("/{id}")
-    public Optional<UserModel> getUser(@PathVariable int id){
+    public User getUser(@PathVariable int id) {
         return myUserService.getOneUser(id);
     }
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public void deleteUser(@PathVariable int id){
-         myUserService.deleteUser(id);
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable int id) {
+        myUserService.deleteUser(id);
     }
 
 }

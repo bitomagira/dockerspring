@@ -1,6 +1,6 @@
 package com.example.demo.ticket;
 
-import com.example.demo.user.UserModel;
+import com.example.demo.user.User;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -20,9 +20,9 @@ public class TicketModel {
     private int amount;
     @ManyToOne
     @JoinColumn
-    private UserModel personPaying;
+    private User personPaying;
     @ManyToOne
     @JoinColumn
-    private UserModel personReceiving;
+    private User personReceiving;
 
 }
